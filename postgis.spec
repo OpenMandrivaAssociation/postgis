@@ -11,7 +11,9 @@ License: GPL
 Group: Sciences/Geosciences
 Requires: postgresql-plpgsql >= 0.8.0
 Requires: %libname = %version
+Requires: proj
 BuildRequires: postgresql-devel >= 0.8.0
+BuildRequires: proj
 BuildRequires: proj-devel
 BuildRequires: geos-devel
 BuildRequires: flex
