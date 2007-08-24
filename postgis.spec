@@ -8,7 +8,7 @@ Summary: Geographic objects to the PostgreSQL object-relational database
 Source0: %name-%version.tar.gz
 URL: http://postgis.refractions.net/
 License: GPL
-Group: Utilities
+Group: Sciences/Geosciences
 Requires: postgresql-plpgsql >= 0.8.0
 Requires: %libname = %version
 BuildRequires: postgresql-devel >= 0.8.0
@@ -49,7 +49,7 @@ Postgis library.
 
 %package -n %libdevel
 Summary: Postgis library
-Group: System/Libraries
+Group: Development/Other
 Requires: %libname = %version
 Provides: %name-devel = %version
 
