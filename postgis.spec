@@ -51,6 +51,7 @@ Postgis library.
 Summary: Postgis library
 Group: System/Libraries
 Requires: %libname = %version
+Provides: %name-devel = %version
 
 %description -n %libdevel
 Postgis library.
