@@ -20,6 +20,7 @@ BuildRequires: flex
 BuildRequires: byacc
 BuildRequires: libxslt-proc
 BuildRequires: bison
+BuildRoot: %{_tmppath}/%{name}-%{version}-root
 
 %description
 Geographic objects to the PostgreSQL object-relational database
