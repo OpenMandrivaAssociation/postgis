@@ -2,7 +2,7 @@
 %define libdevel %mklibname -d lwgeom
 
 Name: postgis
-Version: 1.3.1
+Version: 1.3.2
 Release: %mkrel 1
 Summary: Geographic objects to the PostgreSQL object-relational database
 Source0: %name-%version.tar.gz
@@ -65,7 +65,7 @@ Postgis library.
 #---------------------------------------------------------
 
 %prep
-%setup -q -n postgis-cvs 
+%setup -q 
 
 %build
 %configure2_5x \
