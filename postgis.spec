@@ -3,13 +3,13 @@
 
 Name: postgis
 Version: 1.3.2
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: Geographic objects to the PostgreSQL object-relational database
 Source0: %name-%version.tar.gz
 URL: http://postgis.refractions.net/
 License: GPL
 Group: Sciences/Geosciences
-Requires: postgresql-plpgsql >= 0.8.0
+Requires: postgresql-plpgsql-virtual >= 0.8.0
 Requires: %libname = %version
 Requires: proj
 BuildRequires: postgresql-devel >= 0.8.0
