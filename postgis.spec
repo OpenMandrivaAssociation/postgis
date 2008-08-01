@@ -3,7 +3,7 @@
 
 Name: postgis
 Version: 1.3.2
-Release: %mkrel 5
+Release: %mkrel 6
 Summary: Geographic objects to the PostgreSQL object-relational database
 Source0: %name-%version.tar.gz
 Patch0: postgis-1.3.2-libsonamesql.patch
