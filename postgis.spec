@@ -2,11 +2,11 @@
 %define libdevel %mklibname -d lwgeom
 
 Name: postgis
-Version: 1.3.2
-Release: %mkrel 6
+Version: 1.3.5
+Release: %mkrel 1
 Summary: Geographic objects to the PostgreSQL object-relational database
 Source0: %name-%version.tar.gz
-Patch0: postgis-1.3.2-libsonamesql.patch
+Patch0: postgis-1.3.5-literal.patch
 URL: http://postgis.refractions.net/
 License: GPL
 Group: Sciences/Geosciences
@@ -41,15 +41,8 @@ Group: System/Libraries
 %description -n %libname
 Postgis library.
 
-%if %mdkversion < 200900
-%post -n %libname  -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
-
 %files -n %libname
-%defattr(-, root, root, 0755)
+%defattr(-, root, root, -)
 %_libdir/liblwgeom.so.*
 
 #---------------------------------------------------------
@@ -71,7 +64,7 @@ Postgis library.
 
 %prep
 %setup -q 
-%patch0 -p1
+%patch0 -p0
 
 %build
 %configure2_5x \
@@ -82,9 +75,10 @@ Postgis library.
 %make
 
 %install
-rm -rf %{buildroot}
-make DESTDIR=%{buildroot} install
-cp utils/postgis*.pl %{buildroot}/%_bindir
+rm -rf %buildroot
+
+make DESTDIR=%buildroot install
+cp utils/postgis*.pl %buildroot/%_bindir
 
 %clean
 rm -rf %{buildroot}
