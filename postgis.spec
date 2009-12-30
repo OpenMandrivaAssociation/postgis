@@ -30,7 +30,7 @@ Geographic objects to the PostgreSQL object-relational database
 	--with-proj \
 	--with-geos
 
-%make
+make
 
 %install
 rm -rf %buildroot
