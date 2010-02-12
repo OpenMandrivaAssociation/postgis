@@ -6,9 +6,9 @@ Source0: http://postgis.refractions.net/download/%{name}-%{version}.tar.gz
 URL: http://postgis.refractions.net/
 License: GPLv2+
 Group: Sciences/Geosciences
-Requires: postgresql-plpgsql-virtual >= 0.8.0
+Requires: postgresql8.4-plpgsql
 Requires: proj
-BuildRequires: postgresql-devel >= 0.8.0
+BuildRequires: postgresql8.4-devel
 BuildRequires: proj
 BuildRequires: proj-devel
 BuildRequires: geos-devel
@@ -23,7 +23,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-root
 Geographic objects to the PostgreSQL object-relational database
 
 %prep
-%setup -q 
+%setup -q
 
 %build
 %configure2_5x \
