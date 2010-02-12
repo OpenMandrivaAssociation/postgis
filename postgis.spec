@@ -16,6 +16,7 @@ BuildRequires: flex
 BuildRequires: byacc
 BuildRequires: libxslt-proc
 BuildRequires: bison
+BuildRequires: libxml2-devel
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 
 %description
