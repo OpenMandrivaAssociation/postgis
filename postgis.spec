@@ -1,5 +1,5 @@
 Name: postgis
-Version: 1.4.1
+Version: 1.5.0
 Release: %mkrel 1
 Summary: Geographic objects to the PostgreSQL object-relational database
 Source0: http://postgis.refractions.net/download/%{name}-%{version}.tar.gz
@@ -45,6 +45,4 @@ rm -rf %{buildroot}
 %doc COPYING README.postgis
 %{_bindir}/*
 %{_datadir}/*
-%{_libdir}/postgresql/postgis-1.4.so
-
-
+%{_libdir}/postgresql/postgis-1.5.so
