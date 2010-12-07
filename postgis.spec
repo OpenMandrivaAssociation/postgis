@@ -1,6 +1,6 @@
 Name: postgis
 Version: 1.5.1
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: Geographic objects to the PostgreSQL object-relational database
 Source0: http://postgis.refractions.net/download/%{name}-%{version}.tar.gz
 URL: http://postgis.refractions.net/
