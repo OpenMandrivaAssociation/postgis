@@ -1,14 +1,15 @@
 Name: postgis
-Version: 1.5.1
-Release: %mkrel 2
+Version: 1.5.2
+Release: %mkrel 1
 Summary: Geographic objects to the PostgreSQL object-relational database
 Source0: http://postgis.refractions.net/download/%{name}-%{version}.tar.gz
 URL: http://postgis.refractions.net/
 License: GPLv2+
 Group: Sciences/Geosciences
-Requires: postgresql8.4-plpgsql
+Requires: postgresql-plpgsql
 Requires: proj
-BuildRequires: postgresql8.4-devel
+BuildRequires: cunit-devel
+BuildRequires: postgresql-devel
 BuildRequires: proj
 BuildRequires: proj-devel
 BuildRequires: geos-devel
@@ -27,10 +28,7 @@ Geographic objects to the PostgreSQL object-relational database
 
 %build
 %configure2_5x \
-	--datadir=%_datadir/postgis \
-	--with-proj \
-	--with-geos
-
+	--datadir=%_datadir/postgis
 make
 
 %install
