@@ -1,5 +1,5 @@
 Name: postgis
-Version: 1.5.2
+Version: 1.5.3
 Release: %mkrel 1
 Summary: Geographic objects to the PostgreSQL object-relational database
 Source0: http://postgis.refractions.net/download/%{name}-%{version}.tar.gz
