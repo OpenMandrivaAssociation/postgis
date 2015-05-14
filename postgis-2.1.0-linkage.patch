@@ -1,0 +1,11 @@
+--- postgis-2.1.0/liblwgeom/Makefile.in~	2013-05-10 03:38:17.000000000 +0800
++++ postgis-2.1.0/liblwgeom/Makefile.in	2013-09-10 11:54:39.065956324 +0800
+@@ -12,7 +12,7 @@
+ 
+ CC = @CC@
+ CFLAGS = @CFLAGS@ @PICFLAGS@ @WARNFLAGS@ @GEOS_CPPFLAGS@ @PROJ_CPPFLAGS@ @JSON_CPPFLAGS@
+-LDFLAGS = @LDFLAGS@ @GEOS_LDFLAGS@ -lgeos_c @PROJ_LDFLAGS@ -lproj @JSON_LDFLAGS@
++LDFLAGS = @LDFLAGS@ @GEOS_LDFLAGS@ -lgeos_c @PROJ_LDFLAGS@ -lproj @JSON_LDFLAGS@ -lm
+ NUMERICFLAGS = @NUMERICFLAGS@
+ top_builddir = @top_builddir@
+ prefix = @prefix@
