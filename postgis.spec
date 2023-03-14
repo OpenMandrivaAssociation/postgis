@@ -19,6 +19,8 @@ BuildRequires:	pkgconfig(json-c)
 BuildRequires:	pkgconfig(libpq)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(proj)
+BuildRequires:	pkgconfig(libpq)
+BuildRequires:	protobuf-c
 Requires: 	postgresql-plpgsql
 Requires:	proj
 # Used to exist in postgis 2.x
