@@ -20,6 +20,7 @@ BuildRequires:	pkgconfig(libpq)
 BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(proj)
 BuildRequires:	pkgconfig(libpq)
+BuildRequires:	pkgconfig(libprotobuf-c)
 BuildRequires:	protobuf-c
 Requires: 	postgresql-plpgsql
 Requires:	proj
@@ -42,8 +43,8 @@ Geographic objects to the PostgreSQL object-relational database.
 %autosetup -p1
 export CC=%{__cc}
 export CXX=%{__cxx}
-export CFLAGS="%{optflags}"
-export CXXFLAGS="%{optflags} -std=gnu++17"
+export CFLAGS="%{optflags} -DPROTOBUF_USE_DLLS"
+export CXXFLAGS="%{optflags} -DPROTOBUF_USE_DLLS -std=gnu++17"
 # FIXME figure out why using %%configure here breaks the build
 ./configure \
 	--prefix=%{_prefix} \
