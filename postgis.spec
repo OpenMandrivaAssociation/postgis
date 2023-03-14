@@ -1,15 +1,11 @@
-%define libname %mklibname lwgeom %{version}
-%define devname %mklibname lwgeom -d
-
 Summary:	Geographic objects to the PostgreSQL object-relational database
 Name:		postgis
-Version:	2.1.7
+Version:	3.3.2
 Release:	1
 License:	GPLv2+
 Group:		Sciences/Geosciences
 Url:		http://www.postgis.net
 Source0:	http://download.osgeo.org/postgis/source/%{name}-%{version}.tar.gz
-Patch0:		postgis-2.1.0-linkage.patch
 BuildRequires:	bison
 BuildRequires:	byacc
 BuildRequires:	flex
@@ -17,6 +13,7 @@ BuildRequires:	libxslt-proc
 BuildRequires:	proj
 BuildRequires:	gdal-devel
 BuildRequires:	geos-devel
+BuildRequires:	protobuf-c
 BuildRequires:	pkgconfig(cunit)
 BuildRequires:	pkgconfig(json-c)
 BuildRequires:	pkgconfig(libpq)
@@ -24,6 +21,11 @@ BuildRequires:	pkgconfig(libxml-2.0)
 BuildRequires:	pkgconfig(proj)
 Requires: 	postgresql-plpgsql
 Requires:	proj
+# Used to exist in postgis 2.x
+%define libname %mklibname lwgeom %{version}
+%define devname %mklibname lwgeom -d
+Obsoletes:	%{libname} < %{EVRD}
+Obsoletes:	%{devname} < %{EVRD}
 
 %description
 Geographic objects to the PostgreSQL object-relational database.
@@ -34,48 +36,25 @@ Geographic objects to the PostgreSQL object-relational database.
 %{_datadir}/*
 %{_libdir}/postgresql/*.so
 
-#----------------------------------------------------------------------------
-
-%package -n %{libname}
-Summary:	Shared library for %{name}
-Group:		System/Libraries
-
-%description -n %{libname}
-Shared library for %{name}.
-
-%files -n %{libname}
-%{_libdir}/liblwgeom-%{version}.so
-
-#----------------------------------------------------------------------------
-
-%package -n %{devname}
-Summary:	Development files for %{name}
-Group:		Development/Other
-Requires:	%{libname} = %{EVRD}
-Provides:	%{name}-devel = %{EVRD}
-
-%description -n %{devname}
-Development files for %{name}.
-
-%files -n %{devname}
-%{_includedir}/liblwgeom.h
-%{_libdir}/liblwgeom.so
-
-#----------------------------------------------------------------------------
-
 %prep
-%setup -q
-%patch0 -p1
+%autosetup -p1
+export CC=%{__cc}
+export CXX=%{__cxx}
+export CFLAGS="%{optflags}"
+export CXXFLAGS="%{optflags} -std=gnu++17"
+# FIXME figure out why using %%configure here breaks the build
+./configure \
+	--prefix=%{_prefix} \
+	--libdir=%{_libdir} \
+	--datadir=%{_datadir}/postgis \
+	--with-pgconfig=%{_bindir}/pg_config
 
 %build
-%configure2_5x \
-	--datadir=%{_datadir}/postgis
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 cp utils/postgis*.pl %{buildroot}/%{_bindir}
 
 rm -f %{buildroot}%{_libdir}/liblwgeom.a
-
