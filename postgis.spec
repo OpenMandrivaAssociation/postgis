@@ -1,7 +1,7 @@
 Summary:	Geographic objects to the PostgreSQL object-relational database
 Name:		postgis
-Version:	3.4.2
-Release:	4
+Version:	3.5.0
+Release:	1
 License:	GPLv2+
 Group:		Sciences/Geosciences
 Url:		http://www.postgis.net
@@ -14,6 +14,7 @@ BuildRequires:	proj
 BuildRequires:	gdal-devel
 BuildRequires:	geos-devel
 BuildRequires:	protobuf-c
+BuildRequires:	protobuf-compiler
 BuildRequires:	pkgconfig(cunit)
 BuildRequires:	pkgconfig(json-c)
 BuildRequires:	pkgconfig(libpq)
@@ -45,6 +46,11 @@ export CC=%{__cc}
 export CXX=%{__cxx}
 export CFLAGS="%{optflags} -DPROTOBUF_USE_DLLS"
 export CXXFLAGS="%{optflags} -DPROTOBUF_USE_DLLS -std=gnu++17"
+# Avoid using protobuf-c until it is has been fixed to
+# work with protobuf 26.x properly
+# https://github.com/protobuf-c/protobuf-c/pull/711
+sed -i -e 's,protoc-c,protoc,g' configure.ac
+autoconf
 # FIXME figure out why using %%configure here breaks the build
 ./configure \
 	--prefix=%{_prefix} \
