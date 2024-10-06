@@ -1,7 +1,7 @@
 Summary:	Geographic objects to the PostgreSQL object-relational database
 Name:		postgis
 Version:	3.4.2
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		Sciences/Geosciences
 Url:		http://www.postgis.net
