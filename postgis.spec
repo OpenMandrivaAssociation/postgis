@@ -1,11 +1,11 @@
 Summary:	Geographic objects to the PostgreSQL object-relational database
 Name:		postgis
 Version:	3.5.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Sciences/Geosciences
 Url:		https://www.postgis.net
-Source0:	http://download.osgeo.org/postgis/source/%{name}-%{version}.tar.gz
+Source0:	https://download.osgeo.org/postgis/source/%{name}-%{version}.tar.gz
 BuildRequires:	bison
 BuildRequires:	byacc
 BuildRequires:	flex
