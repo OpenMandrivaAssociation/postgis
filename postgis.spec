@@ -6,6 +6,11 @@ License:	GPLv2+
 Group:		Sciences/Geosciences
 Url:		https://www.postgis.net
 Source0:	https://download.osgeo.org/postgis/source/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	bison
 BuildRequires:	byacc
 BuildRequires:	flex
