@@ -51,6 +51,7 @@ export CC=%{__cc}
 export CXX=%{__cxx}
 export CFLAGS="%{optflags} -DPROTOBUF_USE_DLLS"
 export CXXFLAGS="%{optflags} -DPROTOBUF_USE_DLLS -std=gnu++17"
+export LDFLAGS="-L%{_libdir} ${LDFLAGS:-}"
 # Avoid using protobuf-c until it is has been fixed to
 # work with protobuf 26.x properly
 # https://github.com/protobuf-c/protobuf-c/pull/711
