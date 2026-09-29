@@ -46,6 +46,7 @@ Geographic objects to the PostgreSQL object-relational database.
 %{_bindir}/*
 %{_datadir}/*
 %{_libdir}/postgresql/*.so
+%{_libdir}/postgresql/bitcode
 
 %prep
 %autosetup -p1
