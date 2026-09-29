@@ -6,6 +6,8 @@ License:	GPLv2+
 Group:		Sciences/Geosciences
 Url:		https://www.postgis.net
 Source0:	https://download.osgeo.org/postgis/source/%{name}-%{version}.tar.gz
+# clang rejects the implicit MIN from GDAL; use PostgreSQL's Min().
+Patch0:		postgis-3.5.3-min-macro.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base
